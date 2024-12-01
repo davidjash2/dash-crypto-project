@@ -87,12 +87,15 @@ production:
   cache:
     <<: *primary_production
     database: dash_crypto_project_production_cache
+    replica: true
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
     database: dash_crypto_project_production_queue
+    replica: true
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
     database: dash_crypto_project_production_cable
+    replica: true
     migrations_paths: db/cable_migrate
