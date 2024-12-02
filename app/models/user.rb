@@ -26,7 +26,7 @@ class User < ApplicationRecord
         other_user = User.find(other_user.id)
         recievers_public_key = other_user.public_key
         session_key = (recievers_public_key ** self.private_key) % Rails.application.config.p
-        encrypted_message = (decrypted_message.to_i * session_key) % Rails.application.config.p\
+        encrypted_message = (decrypted_message.to_i * session_key) % Rails.application.config.p
         encrypted_message.to_s
     end
 

@@ -12,13 +12,6 @@ class ApplicationController < ActionController::Base
 
   def log_in(user)
     session[:user_id] = user.id
-    session[:private_key] = rand(2..Rails.application.config.p-2)
-    session[:public_key] = (Rails.application.config.alpha ** session[:private_key]) % session[:private_key]
-    puts("***We Are Cooking*****")
-    puts(Rails.application.config.alpha)
-    puts(session[:private_key])
-    puts(session[:public_key])
-    puts("***This is exciting****")
     @current_user = user
     redirect_to root_path
   end
