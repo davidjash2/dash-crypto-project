@@ -2,7 +2,8 @@ class MessagesController < ApplicationController
     def create
       puts("I AM HERE")
       @current_user = current_user
-      @message = @current_user.messages.create(content: msg_params[:content], room_id: params[:room_id])
+      encrypted_message = current_user.encrypt(params[:room_id], msg_params[:content])
+      @message = @current_user.messages.create(content: encrypted_message, room_id: params[:room_id])
     end
   
     private
